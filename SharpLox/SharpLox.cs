@@ -5,7 +5,7 @@ namespace SharpLox
 {
     class SharpLox
     {
-        private static bool hadError = false;
+        private static bool _hadError = false;
         
         static void Main(string[] args)
         {
@@ -28,7 +28,7 @@ namespace SharpLox
         {
             Run(File.ReadAllText(path));
 
-            if (hadError)
+            if (_hadError)
             {
                 Environment.Exit(Exit.DataError);
             }
@@ -62,7 +62,7 @@ namespace SharpLox
         private static void Report(int line, string where, string message) 
         {
             Console.WriteLine($"[line {line}] Error {where}: {message}");
-            hadError = true;                                                  
+            _hadError = true;                                                  
         }        
     }
 }
